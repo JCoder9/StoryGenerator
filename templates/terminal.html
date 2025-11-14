@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI STORY GENERATOR - INTERACTIVE TERMINAL v2.1.7</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='terminal.css') }}">
+</head>
+<body>
+    <!-- CRT Screen Effect Container -->
+    <div class="crt-overlay"></div>
+    <div class="scanlines"></div>
+    
+    <!-- Main Terminal Container -->
+    <div class="terminal-container">
+        
+        <!-- Header -->
+        <div class="terminal-header">
+            <div class="header-line">═══════════════════════════════════════════════════════════════════════</div>
+            <div class="header-title">
+                <span class="robco">AI STORY GENERATOR - INTERACTIVE SYSTEM</span>
+            </div>
+            <div class="header-subtitle">ADAPTIVE NARRATIVE ENGINE v2.1.7</div>
+            <div class="header-line">═══════════════════════════════════════════════════════════════════════</div>
+        </div>
+
+        <!-- Main Content Area -->
+        <div class="terminal-body">
+            
+            <!-- Left Sidebar - Chapters -->
+            <div class="sidebar chapters-sidebar">
+                <div class="sidebar-title">
+                    <span class="bracket">[</span> PREVIOUS CHAPTERS <span class="bracket">]</span>
+                </div>
+                <div class="sidebar-content" id="chaptersList">
+                    <div class="empty-message">No chapters yet...</div>
+                </div>
+            </div>
+
+            <!-- Center - Story Display -->
+            <div class="story-area">
+                <!-- Boot sequence -->
+                <div class="boot-sequence" id="bootSequence">
+                    <div class="boot-line">SYSTEM INITIALIZING...</div>
+                    <div class="boot-line">LOADING NARRATIVE ENGINE...</div>
+                    <div class="boot-line">ACTIVATING AI STORY MODULES...</div>
+                    <div class="boot-line">AI STORY GENERATOR v2.1.7 READY</div>
+                    <div class="boot-line">═══════════════════════════════════════════════════════════════════════</div>
+                    <div class="boot-line"></div>
+                    <div class="boot-line">Welcome to AI Story Generator - Story Tree Edition</div>
+                    <div class="boot-line">Pre-generated branching narratives with instant responses</div>
+                    <div class="boot-line"></div>
+                    <div class="boot-line">Select a genre to begin:</div>
+                    <div class="boot-line"></div>
+                    <div class="genre-selection" id="genreSelection">
+                        <button class="genre-btn" onclick="selectGenre('detective')">🔍 DETECTIVE</button>
+                        <button class="genre-btn" onclick="selectGenre('scifi')">🚀 SCI-FI</button>
+                        <button class="genre-btn" onclick="selectGenre('horror')">👻 HORROR</button>
+                        <button class="genre-btn" onclick="selectGenre('war')">⚔️ WAR</button>
+                        <button class="genre-btn" onclick="selectGenre('adventure')">🗺️ ADVENTURE</button>
+                    </div>
+                    <div class="boot-line"></div>
+                    <div class="boot-line prompt">>&nbsp;</div>
+                </div>
+
+                <!-- Story Content -->
+                <div class="story-content" id="storyContent" style="display: none;">
+                    <!-- Story text will be added here dynamically -->
+                </div>
+
+                <!-- Current Chapter Indicator -->
+                <div class="chapter-indicator" id="chapterIndicator" style="display: none;">
+                    <span id="currentChapterText">CHAPTER 1: THE BEGINNING</span>
+                </div>
+            </div>
+
+            <!-- Right Sidebar - Database Quick Access -->
+            <div class="sidebar database-sidebar">
+                <div class="sidebar-title">
+                    <span class="bracket">[</span> STORY DATABASE <span class="bracket">]</span>
+                </div>
+                <div class="sidebar-content">
+                    <div class="db-section">
+                        <div class="db-section-title expandable" onclick="toggleSection('characters')">
+                            <span class="expand-icon" id="characters-icon">▶</span> CHARACTERS:
+                        </div>
+                        <div id="characterCount" class="db-count">0 Found</div>
+                        <div id="characters-list" class="db-list" style="display: none;"></div>
+                    </div>
+                    <div class="db-section">
+                        <div class="db-section-title expandable" onclick="toggleSection('locations')">
+                            <span class="expand-icon" id="locations-icon">▶</span> LOCATIONS:
+                        </div>
+                        <div id="locationCount" class="db-count">0 Found</div>
+                        <div id="locations-list" class="db-list" style="display: none;"></div>
+                    </div>
+                    <div class="db-section">
+                        <div class="db-section-title expandable" onclick="toggleSection('events')">
+                            <span class="expand-icon" id="events-icon">▶</span> EVENTS:
+                        </div>
+                        <div id="eventCount" class="db-count">0 Logged</div>
+                        <div id="events-list" class="db-list" style="display: none;"></div>
+                    </div>
+                    <div class="db-search">
+                        <input type="text" id="quickSearch" class="db-search-input" placeholder="SEARCH DATABASE..." />
+                        <button onclick="quickSearch()" class="db-search-btn">QUERY</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Input Area (text input for dynamic mode) -->
+        <div class="terminal-input-area" id="textInputArea" style="display: none;">
+            <div class="input-prompt">>&nbsp;</div>
+            <input type="text" id="userInput" class="terminal-input" autocomplete="off" autofocus />
+        </div>
+        
+        <!-- Choice Buttons Area (for tree mode) -->
+        <div class="choice-buttons-area" id="choiceButtonsArea" style="display: none;">
+            <div id="choiceButtons"></div>
+        </div>
+
+        <!-- Footer Status Bar -->
+        <div class="terminal-footer">
+            <span id="statusText">SYSTEM READY</span>
+            <span id="beatIndicator" style="margin-left: 20px;"></span>
+            <button id="lowPowerToggle" class="low-power-btn" onclick="toggleLowPowerMode()" title="Toggle Low Power Mode">
+                <span id="powerModeIcon">⚡</span> <span id="powerModeText">LOW POWER</span>
+            </button>
+            <span style="float: right;" id="sessionId"></span>
+        </div>
+
+    </div>
+
+    <!-- Database Popup Modal -->
+    <div id="databaseModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="modal-title">STORY DATABASE - QUERY RESULTS</span>
+                <span class="modal-close" onclick="closeDatabase()">[X]</span>
+            </div>
+            <div class="modal-body" id="databaseResults">
+                <!-- Database results will be populated here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Help Modal -->
+    <div id="helpModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="modal-title">AVAILABLE COMMANDS</span>
+                <span class="modal-close" onclick="closeHelp()">[X]</span>
+            </div>
+            <div class="modal-body">
+                <div class="help-section">
+                    <div class="help-command">START</div>
+                    <div class="help-desc">Begin a new story</div>
+                </div>
+                <div class="help-section">
+                    <div class="help-command">DATABASE</div>
+                    <div class="help-desc">View all story elements</div>
+                </div>
+                <div class="help-section">
+                    <div class="help-command">SEARCH [term]</div>
+                    <div class="help-desc">Search for character, location, or event</div>
+                </div>
+                <div class="help-section">
+                    <div class="help-command">CHAPTERS</div>
+                    <div class="help-desc">List all chapters</div>
+                </div>
+                <div class="help-section">
+                    <div class="help-command">SUMMARY</div>
+                    <div class="help-desc">View story summary</div>
+                </div>
+                <div class="help-section">
+                    <div class="help-command">CLEAR</div>
+                    <div class="help-desc">Clear terminal screen</div>
+                </div>
+                <div class="help-section">
+                    <div class="help-desc" style="margin-top: 20px; color: #40ff40;">
+                        For gameplay: Simply describe what your character does!
+                        <br>Example: "John walks to the door"
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='terminal.js') }}"></script>
+</body>
+</html>
