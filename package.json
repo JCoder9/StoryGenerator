@@ -5,9 +5,9 @@
   "main": "electron-main.js",
   "scripts": {
     "start": "electron .",
-    "package-mac": "electron-packager . AIStoryGenerator --platform=darwin --arch=x64 --overwrite --ignore='node_modules|AIStoryGenerator-.*|\\.git|\\.DS_Store|__pycache__|*.pyc'",
-    "package-win": "electron-packager . AIStoryGenerator --platform=win32 --arch=x64 --overwrite --ignore='node_modules|AIStoryGenerator-.*|\\.git|\\.DS_Store|__pycache__|*.pyc'",
-    "package-linux": "electron-packager . AIStoryGenerator --platform=linux --arch=x64 --overwrite --ignore='node_modules|AIStoryGenerator-.*|\\.git|\\.DS_Store|__pycache__|*.pyc'",
+    "package-mac": "electron-packager . AIStoryGenerator --platform=darwin --arch=x64 --overwrite --ignore='node_modules|AIStoryGenerator-.*|\\.git|\\.DS_Store|__pycache__|\\.pyc$'",
+    "package-win": "electron-packager . AIStoryGenerator --platform=win32 --arch=x64 --overwrite --ignore='node_modules|AIStoryGenerator-.*|\\.git|\\.DS_Store|__pycache__|\\.pyc$'",
+    "package-linux": "electron-packager . AIStoryGenerator --platform=linux --arch=x64 --overwrite --ignore='node_modules|AIStoryGenerator-.*|\\.git|\\.DS_Store|__pycache__|\\.pyc$'",
     "package-all": "npm run package-mac && npm run package-win && npm run package-linux",
     "zip-mac": "cd AIStoryGenerator-darwin-x64 && zip -r ../AIStoryGenerator-mac-v1.0.0.zip AIStoryGenerator.app && cd ..",
     "zip-win": "cd AIStoryGenerator-win32-x64 && zip -r ../AIStoryGenerator-windows-v1.0.0.zip . && cd ..",
