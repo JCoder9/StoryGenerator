@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Story Generator - Free Download</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .hero {
+            background: white;
+            border-radius: 20px;
+            padding: 60px 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .tagline {
+            font-size: 1.3em;
+            color: #666;
+            margin-bottom: 40px;
+        }
+        
+        .download-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+        
+        .btn-download {
+            display: inline-block;
+            padding: 20px 40px;
+            font-size: 1.2em;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .btn-download:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        }
+        
+        .btn-download i {
+            margin-right: 10px;
+        }
+        
+        .size {
+            display: block;
+            font-size: 0.7em;
+            opacity: 0.8;
+            font-weight: normal;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+        
+        .feature {
+            background: rgba(255,255,255,0.9);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+        }
+        
+        .feature-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+        
+        .feature h3 {
+            margin-bottom: 10px;
+            color: #667eea;
+        }
+        
+        .info-box {
+            background: rgba(255,255,255,0.1);
+            border: 2px solid rgba(255,255,255,0.2);
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 30px;
+        }
+        
+        .info-box h4 {
+            color: white;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+        
+        .info-box ul {
+            list-style: none;
+            color: white;
+        }
+        
+        .info-box li {
+            padding: 8px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+        
+        .info-box li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #4ade80;
+            font-weight: bold;
+            font-size: 1.3em;
+        }
+        
+        .requirements {
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: rgba(255,255,255,0.9);
+        }
+        
+        .screenshot {
+            margin-top: 40px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+        
+        .screenshot img {
+            width: 100%;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hero">
+            <h1>🎮 AI Story Generator</h1>
+            <p class="tagline">Interactive storytelling powered by AI. Runs 100% on your computer.</p>
+            
+            <div class="download-buttons">
+                <a href="/downloads/AIStoryGenerator-mac-v1.0.0.zip" class="btn-download">
+                    🍎 Download for Mac
+                    <span class="size">~80MB • macOS 10.13+</span>
+                </a>
+                
+                <a href="/downloads/AIStoryGenerator-windows-v1.0.0.zip" class="btn-download">
+                    🪟 Download for Windows
+                    <span class="size">~85MB • Windows 10+</span>
+                </a>
+                
+                <a href="/downloads/AIStoryGenerator-linux-v1.0.0.tar.gz" class="btn-download">
+                    🐧 Download for Linux
+                    <span class="size">~80MB • Ubuntu/Debian/Fedora</span>
+                </a>
+            </div>
+            
+            <div class="requirements">
+                <strong>First run:</strong> Downloads AI model (~1.5GB) • 
+                <strong>After that:</strong> Works offline, instant start
+            </div>
+        </div>
+        
+        <div class="features">
+            <div class="feature">
+                <div class="feature-icon">🔒</div>
+                <h3>100% Private</h3>
+                <p>Everything runs on your computer. Your stories never leave your machine.</p>
+            </div>
+            
+            <div class="feature">
+                <div class="feature-icon">⚡</div>
+                <h3>No Internet Required</h3>
+                <p>After initial setup, works completely offline. No cloud, no connection needed.</p>
+            </div>
+            
+            <div class="feature">
+                <div class="feature-icon">💰</div>
+                <h3>Completely Free</h3>
+                <p>No subscriptions, no API costs, unlimited stories forever.</p>
+            </div>
+            
+            <div class="feature">
+                <div class="feature-icon">🎯</div>
+                <h3>Smart AI</h3>
+                <p>GPT-2 powered story generation with genre-specific constraints for coherent narratives.</p>
+            </div>
+        </div>
+        
+        <div class="info-box">
+            <h4>How It Works</h4>
+            <ul>
+                <li>Download the app (one-time, ~80MB)</li>
+                <li>Double-click to launch</li>
+                <li>First run: AI model downloads automatically (~1.5GB, 5-10 minutes)</li>
+                <li>Opens in your browser at localhost:5000</li>
+                <li>Start generating interactive stories!</li>
+                <li>Every launch after is instant</li>
+            </ul>
+        </div>
+        
+        <div class="info-box">
+            <h4>System Requirements</h4>
+            <ul>
+                <li>RAM: 8GB minimum (16GB recommended)</li>
+                <li>Storage: 2GB free space for AI model</li>
+                <li>OS: macOS 10.13+, Windows 10+, or Linux</li>
+                <li>Internet: Only for initial model download</li>
+            </ul>
+        </div>
+        
+        <!-- Optional: Add screenshot here -->
+        <!-- <div class="screenshot">
+            <img src="/images/story-generator-screenshot.png" alt="AI Story Generator Screenshot">
+        </div> -->
+    </div>
+</body>
+</html>
