@@ -1,0 +1,26 @@
+{
+  "name": "ai-story-generator",
+  "version": "1.0.0",
+  "description": "Interactive AI Story Generator - Runs 100% locally",
+  "main": "electron-main.js",
+  "scripts": {
+    "start": "electron .",
+    "package-mac": "electron-packager . AIStoryGenerator --platform=darwin --arch=x64 --overwrite --ignore='node_modules|AIStoryGenerator-.*|\\.git|\\.DS_Store|__pycache__|*.pyc'",
+    "package-win": "electron-packager . AIStoryGenerator --platform=win32 --arch=x64 --overwrite --ignore='node_modules|AIStoryGenerator-.*|\\.git|\\.DS_Store|__pycache__|*.pyc'",
+    "package-linux": "electron-packager . AIStoryGenerator --platform=linux --arch=x64 --overwrite --ignore='node_modules|AIStoryGenerator-.*|\\.git|\\.DS_Store|__pycache__|*.pyc'",
+    "package-all": "npm run package-mac && npm run package-win && npm run package-linux",
+    "zip-mac": "cd AIStoryGenerator-darwin-x64 && zip -r ../AIStoryGenerator-mac-v1.0.0.zip AIStoryGenerator.app && cd ..",
+    "zip-win": "cd AIStoryGenerator-win32-x64 && zip -r ../AIStoryGenerator-windows-v1.0.0.zip . && cd ..",
+    "zip-linux": "cd AIStoryGenerator-linux-x64 && tar -czf ../AIStoryGenerator-linux-v1.0.0.tar.gz . && cd ..",
+    "zip-all": "npm run zip-mac && npm run zip-win && npm run zip-linux",
+    "build-all": "npm run package-all && npm run zip-all"
+  },
+  "keywords": ["ai", "story", "generator", "interactive", "gpt2"],
+  "author": "Jordan Higgins",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^27.0.0",
+    "electron-packager": "^17.1.2"
+  },
+  "dependencies": {}
+}
