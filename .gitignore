@@ -1,0 +1,76 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual Environment
+lib/
+bin/
+include/
+pyvenv.cfg
+pip-selfcheck.json
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Logs
+*.log
+web_story_server.log
+server.log
+
+# AI Models (large files - will be downloaded on first run)
+models/
+*.bin
+*.safetensors
+
+# Generated Content
+story_trees/
+*.pkl
+*.json.gz
+input_sequences.pkl
+tokenizer.pkl
+
+# Model files
+*.h5
+story_generator_model.h5
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Node modules (if using Electron)
+node_modules/
+
+# Build artifacts
+dist/
+build/
+*.egg-info/
+
+# OS generated files
+Thumbs.db
+.Spotlight-V100
+.Trashes
+
+# Story sessions
+story_sessions.json
+
+# Archives and backups
+*.zip
+Backup/
+StoryGen_backup/
+StoryGen1Results/
+StoryGen2Results/
+StoryGen3Results/
+StoryGenerator/
+files/
+tuning_dir/
+tuning_dir_3/
+
+# Data files
+gutenberg_texts.csv

@@ -1,0 +1,23 @@
+# Story Generator Enhanced - Required Dependencies
+# Install with: pip install -r requirements.txt
+
+# Core ML/AI Libraries
+transformers>=4.30.0     # Hugging Face transformers for GPT-2, Llama, Phi models
+torch>=2.0.0            # PyTorch for model execution
+accelerate>=0.20.0      # Faster model loading
+
+# Web Framework
+flask>=2.0.0            # Web server
+flask-cors>=4.0.0       # Cross-origin resource sharing
+
+# Optional but recommended for better performance
+appdirs>=1.4.4          # Cross-platform user data directories (for config_manager.py)
+
+# Note: Standard library modules (already included in Python):
+# - json, os, re, time, datetime, threading, typing, enum, collections
+# - These don't need to be installed
+
+# Old dependencies (NOT needed for enhanced version):
+# tensorflow  # Only needed for old LSTM models
+# scrapy      # Only needed for web scraping
+# nltk        # Only needed for text preprocessing
